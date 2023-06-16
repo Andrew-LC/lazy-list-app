@@ -1,7 +1,8 @@
 import { createSignal, createEffect, Show } from "solid-js";
-import { useNavigate } from "@solidjs/router";
 import supabase from '../lib/supabaseClient';
 import Login from './login';
+import NavBar from '../components/navbar';
+import CheckBox from '../components/checkbox';
 
 interface UserProps {
     email: string,
@@ -15,19 +16,10 @@ let initialData: UserProps = {
 }
 
 
-async function newTodo(id: string) {
-    const { error } = await supabase
-        .from('todos')
-        .insert({ id: id, due_date: '06/16/2023', todo: 'make this really work' });
-
-    if (error) {
-        console.log(error)
-    }
-}
-
 const Home = () => {
     const [session, setSession] = createSignal<any>(null);
     const [user, setUser] = createSignal<UserProps>(initialData);
+    const [sample, setSample] = createSignal(["andrew", "todo"]);
 
     createEffect(() => {
         supabase.auth.getSession().then(({ data: { session } }) => {
@@ -44,9 +36,16 @@ const Home = () => {
     return (
         <Show when={session()} fallback={<Login />}>
             <div>
-                Home / Dashboard
-                <br />
-                <button onClick={() => newTodo(user().id)}>Add a new todo</button>
+               <NavBar /> 
+	       <br />
+               <Show when={sample()} fallback={<div class="w-full h-full flex justify-center items-center"><span class="loading loading-dots loading-lg"></span></div>}>
+		 <div class="bg-slate-700 p-3 m-3 rounded-md flex flex-col gap-4">
+		   <CheckBox state={true} todo="Just Enjoy Coding" />
+		   <CheckBox state={true} todo="Just Enjoy Coding" />
+		   <CheckBox state={true} todo="Just Enjoy Coding" />
+		   <CheckBox state={true} todo="Just Enjoy Coding" />
+		 </div>
+	      </Show>
             </div>
         </Show>
     );
