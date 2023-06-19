@@ -1,6 +1,6 @@
 ## Lazy List Todo App
 
-This is a projec to learn more about solid js, and create a simple application using it.
+This is a projec
 Given how sudden the react server components took over, I wanted to sit back and enjoy a little bit without overflooding my
 brain with new information.
 
@@ -39,7 +39,3 @@ It correctly bundles Solid in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
-
-## Deployment
-
-You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
