@@ -1,5 +1,7 @@
 ## Lazy List Todo App
 
+[](./public/banner.png)
+
 This is a projec
 Given how sudden the react server components took over, I wanted to sit back and enjoy a little bit without overflooding my
 brain with new information.
