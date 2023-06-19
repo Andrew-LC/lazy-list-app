@@ -27,8 +27,7 @@ const Home = () => {
 
 
     const newTodoController = () => {
-        newTodo(user().id, todo(), false);
-        refetch();
+        newTodo(user().id, todo(), false).then(() => refetch());
     }
 
 
@@ -43,7 +42,7 @@ const Home = () => {
 
                 {/* Todo Component */}
                 <div class="bg-slate-700 p-3 m-3 rounded-md flex flex-col gap-4">
-                    <Show when={!todos.loading} fallback={<span>fetching...</span>}>
+                    <Show when={!todos.loading} fallback={<span class="mx-auto loading loading-dots loading-md"></span>}>
                         <For each={todos()} fallback={<span>No Todos</span>}>
                             {(item) => <CheckBox id={item.todo_id} status={item.status} todo={item.todo} />}
                         </For>

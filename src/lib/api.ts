@@ -51,10 +51,17 @@ const percentage = async () => {
   const { data, error } = await supabase
     .from('todos')
     .select()
-    .eq('status', false)
+    .eq('status', true)
 
   const total = await fetchTodos();
-  let percent = (((data!.length / total!.length) * 100) as unknown) as string;
+  let percent: string;
+
+  if (total?.length === data?.length) {
+    percent = "0";
+  } else {
+    percent = (((data!.length / total!.length) * 100) as unknown) as string;
+  }
+
   if (percent == undefined) {
     percent = "";
   }
