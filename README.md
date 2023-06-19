@@ -1,3 +1,15 @@
+## Lazy List Todo App
+
+This is a projec to learn more about solid js, and create a simple application using it.
+Given how sudden the react server components took over, I wanted to sit back and enjoy a little bit without overflooding my
+brain with new information.
+
+The technologies used in this application are:
+- Solid JS
+- Supabase
+- Typescript
+
+
 ## Usage
 
 Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
@@ -8,7 +20,6 @@ This is the reason you see a `pnpm-lock.yaml`. That being said, any package mana
 $ npm install # or pnpm install or yarn install
 ```
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
 
 ## Available Scripts
 
