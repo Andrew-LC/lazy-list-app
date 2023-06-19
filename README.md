@@ -2,14 +2,18 @@
 
 ![](./public/banner.png)
 
-This is a projec
-Given how sudden the react server components took over, I wanted to sit back and enjoy a little bit without overflooding my
-brain with new information.
+This is a project to implement and learn solid JS by creating a simple todo app.
 
 The technologies used in this application are:
 - Solid JS
 - Supabase
 - Typescript
+
+
+The app has three main pages:
+- Main Box or the Inbox (Store all your tasks or todos)
+- Finished Page (Glance over completed tasks before cleaning them up)
+- Progress page (View stats about the tasks and its completion)
 
 
 ## Usage
