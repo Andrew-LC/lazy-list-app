@@ -18,6 +18,7 @@ const NavBar = () => {
                     </label>
                     <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><A href="/">Inbox</A></li>
+                        <li><A href="/finished">Completed</A></li>
                         <li><A href="/progress-report">Progress</A></li>
                         <li></li>
                         <li><a onClick={signOut}>Log out</a></li>

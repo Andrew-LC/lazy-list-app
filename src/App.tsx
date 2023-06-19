@@ -5,16 +5,16 @@ import Login from './pages/login';
 import SignUp from './pages/signup';
 import Progress from './pages/progress';
 import PageWrapper from './pages/wrapper';
+import Finished from './pages/finished';
 
 
 const App: Component = () => {
     return (
         <>
             <Routes>
-                <Route path="/" component={PageWrapper}>
-                    <Route path="/" component={Home} />
-                    <Route path="/progress-report" component={Progress} />
-                </Route>
+                <Route path="/" component={Home} />
+                <Route path="/finished" component={Finished} />
+                <Route path="/progress-report" component={Progress} />
                 <Route path="/login" component={Login} />
                 <Route path="/signup" component={SignUp} />
             </Routes>

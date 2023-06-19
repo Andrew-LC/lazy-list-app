@@ -1,6 +1,10 @@
-const ProgessCircle = () => {
+interface ProgressProps {
+    value: number
+}
+
+const ProgessCircle = (props: ProgressProps) => {
     return (
-        <div class="radial-progress" style="--value:70; --size:12rem; --thickness: 2rem;">70%</div>
+        <div class="radial-progress" style={{ "--value": `${props.value != undefined ? props.value : 0}`, "--size": "12rem", "--thickness": "2rem" }}>{props.value}%</div>
     );
 }
 
