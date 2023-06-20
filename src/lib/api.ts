@@ -6,9 +6,7 @@ async function fetchTodos() {
     .from('todos')
     .select()
 
-  if (data) {
-    console.log(data)
-  } else {
+  if (error) {
     console.log(error)
   }
 
@@ -71,7 +69,7 @@ const percentage = async () => {
   }
 
   const value = {
-    "percentage": String(percent),
+    "percentage": String(Math.floor((percent as unknown) as number)),
     "total": total!.length,
     "completed": data!.length
   }

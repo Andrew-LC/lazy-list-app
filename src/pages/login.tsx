@@ -36,7 +36,7 @@ const Login = () => {
                 navigate('/');
             }
         })
-
+        setForm(initialData);
     }
 
     return (

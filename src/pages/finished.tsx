@@ -12,12 +12,13 @@ const Finished = () => {
     {/* Delete all completed todos */ }
     const onClick = () => {
         deleteAllCompleted().then(() => refetch());
+        refetch();
     }
 
 
     return (
         <PageWrapper>
-            <div class="lg:w-[70%] mx-auto lg:mt-10">
+            <div class="lg:w-[70%] mx-auto mt-4 lg:mt-10">
 
                 <div class="w-full flex justify-between items-center pr-5 pl-5">
                     <h2 class="font-bold text-xl">Completed Todos: </h2>
@@ -28,7 +29,7 @@ const Finished = () => {
                 <div class="bg-slate-700 p-3 m-3 rounded-md flex flex-col gap-4">
                     <Show when={!todos.loading} fallback={<span class="mx-auto loading loading-dots loading-md"></span>}>
                         <For each={todos()} fallback={<span>No Todos</span>}>
-                            {(item) => <CheckBox id={item.todo_id} status={item.status} todo={item.todo} />}
+                            {(item) => <CheckBox id={item.todo_id} status={item.status} todo={item.todo} pageType="finished" />}
                         </For>
                     </Show>
                 </div>

@@ -9,7 +9,7 @@ async function signOut() {
 
 const NavBar = () => {
     return (
-        <div class="navbar lg:w-[70%] lg:mx-auto lg:mt-4 shadow-lg bg-base-100">
+        <div class="navbar fixed top-0 lg:w-[70%] lg:left-[15%] lg:mt-4 shadow-lg bg-base-100/20 backdrop-blur-xl">
             <div class="navbar-start">
                 <div class="dropdown">
                     <label tabindex="0" class="btn btn-ghost btn-circle">
