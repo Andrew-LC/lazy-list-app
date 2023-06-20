@@ -14,9 +14,7 @@ const Home = () => {
     const [todo, setTodo] = createSignal("");
     const [user, setUser] = createSignal<UserProps>(initialData);
     {/* This signal fetches the data asynchronously and allows us to mutate it without writing more code */ }
-    const [todos, { mutate }] = createResource<any>(getFalseTodos, {
-        deferStream: true,
-    })
+    const [todos, { mutate, refetch }] = createResource<any>(getFalseTodos);
 
 
     {/* Get user details */ }
@@ -27,6 +25,7 @@ const Home = () => {
                 id: session?.user.id
             } as UserProps);
         })
+        refetch();
     })
 
 
