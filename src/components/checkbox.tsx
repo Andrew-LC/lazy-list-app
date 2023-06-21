@@ -10,7 +10,8 @@ interface CheckProps {
     status: boolean,
     id: string,
     todo: string,
-    pageType: string
+    pageType: string,
+    mutateState(id: string): any 
 }
 
 
@@ -28,6 +29,7 @@ const CheckBox = (props: CheckProps) => {
             console.log(error);
         } else {
             setStatus(!status()); // Update the status state
+	    props.mutateState(id)
         }
     }
 

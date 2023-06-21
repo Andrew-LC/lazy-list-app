@@ -36,6 +36,11 @@ const Home = () => {
     }
 
 
+    const deleteMutateState = (id: string) => {
+	mutate((prev: any) => [...prev.filter((item: any) => item.todo_id !== id)]);
+    }
+
+
 
     return (
         <PageWrapper>
@@ -53,7 +58,7 @@ const Home = () => {
                 <div class="bg-slate-700 p-3 m-3 rounded-md flex flex-col gap-4">
                     <Show when={!todos.loading} fallback={<span class="mx-auto loading loading-dots loading-md"></span>}>
                         <For each={todos()} fallback={<span class="mx-auto">Add Todos</span>}>
-                            {(item) => <CheckBox id={item.todo_id} status={item.status} todo={item.todo} pageType="inbox" />}
+                            {(item) => <CheckBox id={item.todo_id} status={item.status} todo={item.todo} pageType="inbox" mutateState={deleteMutateState} />}
                         </For>
                     </Show>
                 </div>
