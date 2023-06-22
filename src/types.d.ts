@@ -6,5 +6,7 @@ export interface UserProps {
 
 export interface TodoProps {
   todo: string,
-  status: boolean
+  status: boolean,
+  id: string,
+  todo_id: string
 }

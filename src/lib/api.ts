@@ -74,16 +74,20 @@ const percentage = async () => {
     "completed": data!.length
   }
 
+  console.log(value)
   return value;
 }
 
 
 const newTodo = async (id: string, todo: string, status: boolean) => {
-  const { error } = await supabase
+  const { data, error } = await supabase
     .from('todos')
     .insert({ id: id, todo: todo, status: status })
+    .select()
   if (error) {
     console.log(error)
+  } else {
+    return data[0];
   }
 }
 

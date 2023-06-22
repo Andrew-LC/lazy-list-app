@@ -4,8 +4,8 @@ import Home from './pages/home';
 import Login from './pages/login';
 import SignUp from './pages/signup';
 import Progress from './pages/progress';
-import PageWrapper from './pages/wrapper';
 import Finished from './pages/finished';
+import Help from './pages/help';
 
 
 const App: Component = () => {
@@ -15,6 +15,7 @@ const App: Component = () => {
                 <Route path="/" component={Home} />
                 <Route path="/finished" component={Finished} />
                 <Route path="/progress-report" component={Progress} />
+                <Route path="/help" component={Help} />
                 <Route path="/login" component={Login} />
                 <Route path="/signup" component={SignUp} />
             </Routes>

@@ -19,6 +19,7 @@ const NavBar = () => {
                         <li><A href="/">Inbox</A></li>
                         <li><A href="/finished">Completed</A></li>
                         <li><A href="/progress-report">Progress</A></li>
+                        <li><A href="/help">Help</A></li>
                         <li></li>
                         <li><a onClick={signOut}>Log out</a></li>
                     </ul>

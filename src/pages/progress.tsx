@@ -9,11 +9,11 @@ const Progress = () => {
     return (
         <PageWrapper>
             <div class="w-full h-full p-4 pt-10 flex flex-col items-center gap-4">
-                <Show when={!percent.loading} fallback={<div>Fetching...</div>}>
+                <Show when={!percent.loading} fallback={<span class="mx-auto loading loading-dots loading-md"></span>}>
                     <h1 class="font-semibold text-2xl mb-8">Progress Report</h1>
 
                     {/* Progress Component */}
-                    <Show when={Number(percent()!.percentage) > 0} fallback={<div>Geez you haven't done a single job yet !</div>}>
+                    <Show when={percent()!.completed > 0} fallback={<div class="text-xl">Geez you haven't done a single job yet !</div>}>
                         <ProgressCircle value={Number(percent()!.percentage)} />
                     </Show>
 

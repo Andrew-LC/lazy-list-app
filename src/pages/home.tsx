@@ -3,6 +3,7 @@ import CheckBox from '../components/checkbox';
 import PageWrapper from './wrapper'
 import { newTodo, getFalseTodos } from '../lib/api';
 import supabase from '../lib/supabaseClient';
+import Toastify from 'toastify-js';
 import { UserProps } from '../types';
 
 let initialData: UserProps = {
@@ -32,12 +33,46 @@ const Home = () => {
     {/* Mutate the todos after the newtodo is successfully addded to the database */ }
     const newTodoController = () => {
         newTodo(user().id, todo(), false)
-            .then(() => mutate((prev) => [...prev, { id: user().id, status: false, todo: todo() }]));
+            .then(async (data) => {
+                // FIXED: Mutation adds the new todo but no access to the newly created todo_id
+                mutate((prev) => [...prev, { todo_id: data.todo_id, status: false, todo: todo() }]);
+                console.log(data)
+                toastME("New Todo !");
+            });
     }
 
 
     const deleteMutateState = (id: string) => {
-	mutate((prev: any) => [...prev.filter((item: any) => item.todo_id !== id)]);
+        mutate((prev: any) => [...prev.filter((item: any) => item.todo_id !== id)]);
+    }
+
+
+    const toastME = (message: string) => {
+        Toastify({
+            text: message,
+            duration: 500,
+            className: "info",
+            close: true,
+            gravity: "top",
+            position: "center",
+            newWindow: true,
+            style: {
+                background: "rgba(51, 65, 85, 0.2)",
+                backdropFilter: "blur(5px)",
+                padding: "1rem",
+                borderRadius: "0px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                zIndex: "100",
+                marginTop: "3rem",
+                marginBottom: "0px",
+                fontSize: "1.2rem",
+                position: "absolute",
+                right: "0px",
+                left: "0px",
+            }
+        }).showToast();
     }
 
 
