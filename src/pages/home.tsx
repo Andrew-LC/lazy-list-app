@@ -35,7 +35,7 @@ const Home = () => {
         newTodo(user().id, todo(), false)
             .then(async (data) => {
                 // FIXED: Mutation adds the new todo but no access to the newly created todo_id
-                mutate((prev) => [...prev, { todo_id: data.todo_id, status: false, todo: todo() }]);
+                mutate((prev) => [...prev, { todo_id: data.todo_id, status: false, todo: todo(), created_at: new Date() }]);
                 toastME("New Todo !");
             });
     }

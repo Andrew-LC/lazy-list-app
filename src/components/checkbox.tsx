@@ -23,7 +23,6 @@ function convertDate(date: string) {
         month: '2-digit',
         day: '2-digit'
     });
-    console.log(date);
     return formattedDate
 }
 

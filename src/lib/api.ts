@@ -71,7 +71,7 @@ const percentage = async () => {
   const value = {
     "percentage": String(Math.floor((percent as unknown) as number)),
     "total": total!.length,
-    "completed": data!.length
+    "completed": data!.length,
   }
 
   return value;
