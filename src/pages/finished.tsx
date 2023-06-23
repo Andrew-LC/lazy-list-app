@@ -59,7 +59,7 @@ const Finished = () => {
                 <div class="bg-slate-700 p-3 m-3 rounded-md flex flex-col gap-4">
                     <Show when={!todos.loading} fallback={<span class="mx-auto loading loading-dots loading-md"></span>}>
                         <For each={todos()} fallback={<span>No Todos</span>}>
-                            {(item) => <CheckBox id={item.todo_id} status={item.status} todo={item.todo} pageType="finished" mutateState={() => { }} />}
+                            {(item) => <CheckBox id={item.todo_id} status={item.status} todo={item.todo} created_date={item.created_at} pageType="finished" mutateState={() => { }} />}
                         </For>
                     </Show>
                 </div>

@@ -74,7 +74,6 @@ const percentage = async () => {
     "completed": data!.length
   }
 
-  console.log(value)
   return value;
 }
 

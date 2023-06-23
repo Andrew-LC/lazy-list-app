@@ -10,8 +10,21 @@ interface CheckProps {
     status: boolean,
     id: string,
     todo: string,
+    created_date: string,
     pageType: string,
     mutateState(id: string): any
+}
+
+
+function convertDate(date: string) {
+    const newDate = new Date(date);
+    const formattedDate = newDate.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit'
+    });
+    console.log(date);
+    return formattedDate
 }
 
 
@@ -34,14 +47,14 @@ const CheckBox = (props: CheckProps) => {
     }
 
     return (
-        < div class="form-control text-lg p-3" >
+        <div class="form-control text-lg p-3" >
             <Show when={props.pageType == "inbox"}>
                 <label class="flex items-center gap-4 cursor-pointer">
                     <input id={props.id} onClick={updateTodo} type="checkbox" checked={props.status} class="checkbox" />
                     <div class="flex-1 flex items-between justify-between">
                         <span class="text-regular">{props.todo}</span>
                         <div>
-                            <span class="indicator-item badge badge-secondary">01/09/2023</span>
+                            <span class="indicator-item badge badge-secondary">{convertDate(props.created_date)}</span>
                         </div>
                     </div>
                 </label>
@@ -53,7 +66,7 @@ const CheckBox = (props: CheckProps) => {
                     <input id={props.id} type="checkbox" checked={props.status} class="checkbox" disabled />
                     <div class="flex-1 flex items-between justify-between">
                         <span class="text-regular">{props.todo}</span>
-                        <span class="indicator-item badge badge-secondary">01/09/2023</span>
+                        <span class="indicator-item badge badge-secondary">{convertDate(props.created_date)}</span>
                     </div>
                 </label>
             </Show>
